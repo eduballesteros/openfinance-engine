@@ -55,6 +55,15 @@ No hace falta instalar Maven: el proyecto incluye Maven Wrapper.
 
 Los tests levantan su propio PostgreSQL con Testcontainers, así que no necesitan `.env`.
 
+## Integración continua
+
+GitHub Actions ([`.github/workflows/ci.yml`](.github/workflows/ci.yml)) se ejecuta en cada PR y en cada push a `main` y `develop`:
+
+- **Build y tests:** `./mvnw clean verify`.
+- **Secretos:** falla si se versiona un `.env`, una clave (`*.pem`, `*.key`, `*.p12`, `*.pfx`, `*.jks`) o un `application-local.yml`, y busca credenciales en todo el historial con [gitleaks](https://github.com/gitleaks/gitleaks).
+
+Si la CI detecta un secreto, ya está publicado en GitHub: revócalo y genera uno nuevo antes de limpiar el historial.
+
 ## Configuración
 
 Las variables están descritas en [`.env.example`](.env.example):

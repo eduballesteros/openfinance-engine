@@ -38,6 +38,9 @@ build/
 !.env.example
 *.pem
 *.key
+*.p12
+*.pfx
+*.jks
 application-local.yml
 
 ### Local tooling ###
