@@ -62,6 +62,7 @@ Las variables están descritas en [`.env.example`](.env.example):
 | Variable | Uso |
 | --- | --- |
 | `POSTGRES_DB`, `POSTGRES_USER`, `POSTGRES_PASSWORD` | Base de datos local |
+| `POSTGRES_PORT` | Puerto local de PostgreSQL (opcional, `15432` por defecto) |
 | `ANTHROPIC_API_KEY` | Chat con IA |
 | `ENABLE_BANKING_APPLICATION_ID`, `ENABLE_BANKING_PRIVATE_KEY_PATH` | Integración bancaria |
 
