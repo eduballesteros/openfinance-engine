@@ -67,6 +67,38 @@ Las variables están descritas en [`.env.example`](.env.example):
 
 Nunca versiones `.env`, claves privadas (`*.pem`, `*.key`) ni `application-local.yml`: están en `.gitignore`.
 
+## Estructura del proyecto
+
+El código se organiza por funcionalidad: cada módulo de negocio tiene su propio paquete.
+
+```
+src/main/java/es/eduballesteros/openfinance/
+├── common/
+│   ├── config/              # configuración transversal
+│   ├── exception/           # excepciones y gestión de errores
+│   ├── money/               # tipos para importes y divisas
+│   └── security/            # autenticación y autorización
+├── bankconnection/          # conexiones con bancos
+├── account/                 # cuentas bancarias
+├── transaction/             # movimientos
+├── category/                # categorías de movimientos
+├── analytics/               # análisis de gastos e ingresos
+├── savings/                 # ahorro
+├── assistant/               # asistente con IA (Anthropic)
+└── integration/
+    └── enablebanking/       # cliente de Enable Banking
+
+src/main/resources/
+├── application.yml
+└── db/migration/            # migraciones Flyway (V1__descripcion.sql, ...)
+
+src/test/java/...            # misma estructura que src/main/java
+src/test/resources/wiremock/ # respuestas simuladas de APIs externas
+docs/                        # documentación del proyecto
+```
+
+Las carpetas vacías llevan un `.gitkeep` para que Git las versione; bórralo cuando la carpeta tenga contenido.
+
 ## Ramas
 
 - `main`: código estable.
