@@ -1,0 +1,226 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-11-17T12:45:40.80771+01:00",
+  "title": "Design System: OpenFinance",
+  "extensions": {
+    "colorMeta": {
+      "navy": {
+        "role": "primary",
+        "displayName": "Azul marino estructural"
+      },
+      "accent": {
+        "role": "primary",
+        "displayName": "Azul corporativo de acción"
+      },
+      "paper": {
+        "role": "neutral",
+        "displayName": "Papel frío"
+      },
+      "surface": {
+        "role": "neutral",
+        "displayName": "Superficie de contenido"
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "display",
+        "purpose": "Saldo principal"
+      },
+      "headline": {
+        "displayName": "headline",
+        "purpose": "Título de página"
+      },
+      "title": {
+        "displayName": "title",
+        "purpose": "Título de tarjeta"
+      },
+      "body": {
+        "displayName": "body",
+        "purpose": "Contenido"
+      },
+      "label": {
+        "displayName": "label",
+        "purpose": "Metadato"
+      },
+      "chip": {
+        "displayName": "chip",
+        "purpose": "Estado"
+      }
+    },
+    "shadows": [
+      {
+        "name": "shadow-card",
+        "value": "0 1px 2px rgb(11 46 95 / 0.06), 0 2px 8px rgb(11 46 95 / 0.04)",
+        "purpose": "Tarjeta en claro"
+      },
+      {
+        "name": "shadow-card-dark",
+        "value": "0 0 0 1px rgb(255 255 255 / 0.04)",
+        "purpose": "Tarjeta en oscuro"
+      },
+      {
+        "name": "bottom-nav",
+        "value": "0 -2px 10px rgb(11 46 95 / 0.06)",
+        "purpose": "Separación de barra inferior"
+      }
+    ],
+    "motion": [
+      {
+        "name": "ease-out",
+        "value": "cubic-bezier(0.23, 1, 0.32, 1)",
+        "purpose": "Estados"
+      },
+      {
+        "name": "dur-press",
+        "value": "100ms",
+        "purpose": "Botones y navegación"
+      },
+      {
+        "name": "dur-state",
+        "value": "200ms",
+        "purpose": "Aparición y ocupado"
+      },
+      {
+        "name": "link-arrow",
+        "value": "150ms",
+        "purpose": "Desplazamiento de flecha"
+      },
+      {
+        "name": "ledger-background",
+        "value": "400ms",
+        "purpose": "Cambio de movimiento nuevo"
+      },
+      {
+        "name": "skeleton",
+        "value": "1.4s ease-in-out infinite",
+        "purpose": "Carga; desactivado con movimiento reducido"
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "bank-action-container",
+        "value": "18rem"
+      },
+      {
+        "name": "category-table-container",
+        "value": "20rem"
+      },
+      {
+        "name": "compact-sample-badge-viewport",
+        "value": "24rem"
+      },
+      {
+        "name": "ledger-meta-container",
+        "value": "30rem"
+      },
+      {
+        "name": "summary-figures-container",
+        "value": "48rem"
+      },
+      {
+        "name": "summary-columns-container",
+        "value": "64rem"
+      },
+      {
+        "name": "desktop-nav-viewport",
+        "value": "64rem"
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Botón primario",
+      "kind": "button",
+      "description": "Acción principal existente.",
+      "html": "<button class=\"ds-btn ds-primary\" type=\"button\">Conectar un banco</button>",
+      "css": ".ds-btn{display:inline-flex;align-items:center;justify-content:center;gap:var(--s-2,.5rem);min-height:2.5rem;padding:0 var(--s-4,1rem);border:1px solid var(--rule-strong,#c5cfdc);border-radius:var(--radius-md,8px);background:var(--surface,#fff);color:var(--accent,#1a5bb5);font-size:var(--text-sm,.8125rem);font-weight:600;cursor:pointer;transition:background-color var(--dur-press,100ms) var(--ease-out,cubic-bezier(.23,1,.32,1)),border-color var(--dur-press,100ms),transform var(--dur-press,100ms);font-family:var(--font-ui,\"Public Sans Variable\",\"Public Sans\",\"Segoe UI\",system-ui,sans-serif);}.ds-btn:hover{background:var(--accent-wash,#e8f0fb);border-color:var(--accent,#1a5bb5)}.ds-btn:active{transform:scale(.98)}.ds-btn:focus-visible{outline:2px solid var(--accent,#1a5bb5);outline-offset:2px}.ds-btn:disabled{opacity:.6;cursor:progress}@media(prefers-reduced-motion:reduce){.ds-btn:active{transform:none}}.ds-primary{background:var(--accent,#1a5bb5);border-color:var(--accent,#1a5bb5);color:var(--on-accent,#fff)}.ds-primary:hover{background:var(--accent-hover,#144a96);border-color:var(--accent-hover,#144a96);color:var(--on-accent,#fff)}",
+      "refersTo": "button-primary"
+    },
+    {
+      "name": "Botón secundario",
+      "kind": "button",
+      "description": "Acción secundaria con borde.",
+      "html": "<button class=\"ds-btn\" type=\"button\">Marcar como leídos</button>",
+      "css": ".ds-btn{display:inline-flex;align-items:center;justify-content:center;gap:var(--s-2,.5rem);min-height:2.5rem;padding:0 var(--s-4,1rem);border:1px solid var(--rule-strong,#c5cfdc);border-radius:var(--radius-md,8px);background:var(--surface,#fff);color:var(--accent,#1a5bb5);font-size:var(--text-sm,.8125rem);font-weight:600;cursor:pointer;transition:background-color var(--dur-press,100ms) var(--ease-out,cubic-bezier(.23,1,.32,1)),border-color var(--dur-press,100ms),transform var(--dur-press,100ms);font-family:var(--font-ui,\"Public Sans Variable\",\"Public Sans\",\"Segoe UI\",system-ui,sans-serif);}.ds-btn:hover{background:var(--accent-wash,#e8f0fb);border-color:var(--accent,#1a5bb5)}.ds-btn:active{transform:scale(.98)}.ds-btn:focus-visible{outline:2px solid var(--accent,#1a5bb5);outline-offset:2px}.ds-btn:disabled{opacity:.6;cursor:progress}@media(prefers-reduced-motion:reduce){.ds-btn:active{transform:none}}",
+      "refersTo": "button-secondary"
+    },
+    {
+      "name": "Acción sobre marino",
+      "kind": "button",
+      "description": "Variante real de actualización sobre la banda.",
+      "html": "<div class=\"ds-band\"><button class=\"ds-btn ds-navy\" type=\"button\">Actualizar</button></div>",
+      "css": ".ds-btn{display:inline-flex;align-items:center;justify-content:center;gap:var(--s-2,.5rem);min-height:2.5rem;padding:0 var(--s-4,1rem);border:1px solid var(--rule-strong,#c5cfdc);border-radius:var(--radius-md,8px);background:var(--surface,#fff);color:var(--accent,#1a5bb5);font-size:var(--text-sm,.8125rem);font-weight:600;cursor:pointer;transition:background-color var(--dur-press,100ms) var(--ease-out,cubic-bezier(.23,1,.32,1)),border-color var(--dur-press,100ms),transform var(--dur-press,100ms);font-family:var(--font-ui,\"Public Sans Variable\",\"Public Sans\",\"Segoe UI\",system-ui,sans-serif);}.ds-btn:hover{background:var(--accent-wash,#e8f0fb);border-color:var(--accent,#1a5bb5)}.ds-btn:active{transform:scale(.98)}.ds-btn:focus-visible{outline:2px solid var(--accent,#1a5bb5);outline-offset:2px}.ds-btn:disabled{opacity:.6;cursor:progress}@media(prefers-reduced-motion:reduce){.ds-btn:active{transform:none}}.ds-band{background:var(--navy,#0b2e5f);padding:var(--s-4,1rem)}.ds-navy{background:transparent;color:var(--navy-ink,#fff);border-color:rgb(255 255 255 / .4)}.ds-navy:hover{background:rgb(255 255 255 / .1);color:var(--navy-ink,#fff);border-color:var(--navy-ink,#fff)}.ds-navy:focus-visible{outline-color:var(--navy-ink,#fff)}"
+    },
+    {
+      "name": "Fichas de estado",
+      "kind": "chip",
+      "description": "Estados con texto; no son controles interactivos.",
+      "html": "<div class=\"ds-chips\"><span class=\"ds-chip ds-info\">Compartida</span><span class=\"ds-chip ds-ok\">Conectado</span><span class=\"ds-chip ds-caution\">Pendiente</span><span class=\"ds-chip ds-danger\">Error</span></div>",
+      "css": ".ds-chips{display:flex;flex-wrap:wrap;gap:var(--s-2,.5rem)}.ds-chip{display:inline-flex;align-items:center;gap:var(--s-1,.25rem);padding:2px var(--s-2,.5rem);border-radius:var(--radius-pill,999px);font-size:var(--text-xs,.75rem);font-weight:600;line-height:1.5;white-space:nowrap;font-family:var(--font-ui,\"Public Sans Variable\",\"Public Sans\",\"Segoe UI\",system-ui,sans-serif);}.ds-info{background:var(--accent-wash,#e8f0fb);color:var(--accent,#1a5bb5)}.ds-ok{background:var(--credit-wash,#e6f4ec);color:var(--credit,#12733f)}.ds-caution{background:var(--caution-wash,#fff4e0);color:var(--caution,#8a5300)}.ds-danger{background:var(--danger-wash,#fdecec);color:var(--danger,#b4232a)}",
+      "refersTo": "chip-info"
+    },
+    {
+      "name": "Tarjeta de contenido",
+      "kind": "card",
+      "description": "Superficie de contenido con borde suave.",
+      "html": "<section class=\"ds-card\"><h2 class=\"ds-title\">Mis cuentas</h2><p class=\"ds-meta\">Saldo no disponible</p></section>",
+      "css": ".ds-card{background:var(--surface,#fff);color:var(--ink,#16213a);border:1px solid var(--rule,#e1e7ef);border-radius:var(--radius-card,12px);box-shadow:var(--shadow-card,0 1px 2px rgb(11 46 95 / .06),0 2px 8px rgb(11 46 95 / .04));padding:var(--s-5,1.25rem);font-family:var(--font-ui,\"Public Sans Variable\",\"Public Sans\",\"Segoe UI\",system-ui,sans-serif);}.ds-title{margin:0;font-size:var(--text-lg,1.125rem);font-weight:650;line-height:1.2;letter-spacing:-.012em}.ds-meta{margin:var(--s-3,.75rem) 0 0;color:var(--ink-faint,#5a6579);font-size:var(--text-sm,.8125rem)}@media(prefers-contrast:more){.ds-card{border-color:var(--rule-strong,#c5cfdc);box-shadow:none}}",
+      "refersTo": "card"
+    },
+    {
+      "name": "Navegación móvil",
+      "kind": "nav",
+      "description": "Fragmento de la barra existente; la aplicación muestra cinco destinos.",
+      "html": "<nav class=\"ds-nav\" aria-label=\"Principal\"><a class=\"ds-active\" href=\"#resumen\" aria-current=\"page\"><svg width=\"22\" height=\"22\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"m3 10 9-7 9 7v10a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1Z\"/><path d=\"M9 21v-8h6v8\"/></svg><span>Resumen</span></a><a href=\"#movimientos\"><span>Movimientos</span></a></nav>",
+      "css": ".ds-nav{display:grid;grid-auto-flow:column;grid-auto-columns:1fr;background:var(--surface,#fff);border-top:1px solid var(--rule,#e1e7ef);box-shadow:0 -2px 10px rgb(11 46 95 / .06);font-family:var(--font-ui,\"Public Sans Variable\",\"Public Sans\",\"Segoe UI\",system-ui,sans-serif);}.ds-nav a{display:grid;justify-items:center;align-content:center;gap:3px;min-height:3.75rem;padding:0 var(--s-1,.25rem);font-size:.6875rem;font-weight:600;text-align:center;color:var(--ink-faint,#5a6579);text-decoration:none;transition:color var(--dur-press,100ms) var(--ease-out,cubic-bezier(.23,1,.32,1))}.ds-nav a:hover,.ds-nav a.ds-active{color:var(--accent,#1a5bb5)}.ds-nav a:focus-visible{outline:2px solid var(--accent,#1a5bb5);outline-offset:2px}"
+    },
+    {
+      "name": "Importe principal",
+      "kind": "custom",
+      "description": "Importe y céntimos jerarquizados; cifra ilustrativa señalada como ejemplo.",
+      "html": "<div class=\"ds-balance\"><p class=\"ds-label\">Saldo total</p><p class=\"ds-figure\">12.450<span class=\"ds-minor\">,00 €</span></p><p class=\"ds-note\">Datos de ejemplo</p></div>",
+      "css": ".ds-balance{background:var(--navy,#0b2e5f);color:var(--navy-ink,#fff);padding:var(--s-5,1.25rem);font-family:var(--font-ui,\"Public Sans Variable\",\"Public Sans\",\"Segoe UI\",system-ui,sans-serif);}.ds-label,.ds-note{margin:0;color:var(--navy-soft,#c9d6ea);font-size:var(--text-sm,.8125rem)}.ds-label{font-weight:500}.ds-figure{margin:var(--s-1,.25rem) 0;font-size:var(--text-hero,clamp(2.25rem,1.6rem + 2.4vw,3rem));font-weight:700;line-height:1.05;letter-spacing:-.025em;font-variant-numeric:tabular-nums lining-nums;font-feature-settings:\"tnum\" 1,\"lnum\" 1;white-space:nowrap}.ds-minor{font-size:.55em;font-weight:600;letter-spacing:0;margin-inline-start:.04em}"
+    },
+    {
+      "name": "Monograma bancario de respaldo",
+      "kind": "custom",
+      "description": "Respaldo tipográfico del componente real, no reemplaza un logotipo oficial disponible.",
+      "html": "<div class=\"ds-bank\"><span class=\"ds-monogram\" aria-hidden=\"true\">BN</span><span>Banco no disponible</span></div>",
+      "css": ".ds-bank{display:flex;align-items:center;gap:var(--s-3,.75rem);color:var(--ink,#16213a);font-family:var(--font-ui,\"Public Sans Variable\",\"Public Sans\",\"Segoe UI\",system-ui,sans-serif);}.ds-monogram{display:grid;place-items:center;inline-size:3rem;block-size:3rem;border-radius:10px;background:#0b2e5f;color:#fff;font-size:.8125rem;font-weight:750;letter-spacing:.01em;box-shadow:inset 0 1px 0 rgb(255 255 255 / .18),inset 0 -1px 0 rgb(0 0 0 / .12)}"
+    }
+  ],
+  "narrative": {
+    "northStar": "Banca tradicional, profesional",
+    "overview": "OpenFinance mantiene una presencia serena, clara y profesional, inspirada en la banca tradicional. La estructura azul marino encuadra la información; el papel frío, las superficies blancas y la profundidad contenida facilitan la lectura cotidiana. BBVA y CaixaBank son referencias de oficio y tono, no identidades que copiar.\r\n\r\nLa densidad permite revisar movimientos y cuentas sin perder la jerarquía de los importes. La S entrelazada con un clavo, reinterpretada en azul marino con trazo redondeado minimalista a partir del emblema de la Esclavitud de la Encarnación, es la identidad de la aplicación; su procedencia está en `frontend/public/brand/README.md`.",
+    "keyCharacteristics": [
+      "Estructura marina y acción azul corporativo.",
+      "Public Sans con cifras tabulares reales.",
+      "Tarjetas con borde suave, líneas de separación y sombra ligera.",
+      "Estados financieros explícitos y color acompañado de texto o signo."
+    ],
+    "rules": [
+      {
+        "name": "Semántica financiera",
+        "body": "El verde señala entradas y estados correctos; el rojo señala errores y descubiertos. Un gasto normal conserva el color de texto. El signo acompaña al color; el crédito dispuesto de una tarjeta no se trata como descubierto.",
+        "section": "colors"
+      },
+      {
+        "name": "Dato ausente",
+        "body": "Un importe ausente se presenta como «—» y «Sin datos» accesible; un cero real se presenta como «0,00 €». La carga, el error y la ausencia de cuentas mantienen mensajes propios.",
+        "section": "typography"
+      }
+    ],
+    "dos": [
+      "Do conservar el emblema minimalista solicitado y la procedencia de los activos.",
+      "Do usar los tokens semánticos y sus equivalentes oscuros; mantener foco visible y preferencias de accesibilidad.",
+      "Do alinear importes con cifras tabulares, formato es-ES y moneda EUR.",
+      "Do acompañar los estados con texto o icono y mostrar la frescura o ausencia del dato donde corresponde."
+    ],
+    "donts": [
+      "Don't sustituir la identidad propia por las marcas de los bancos de referencia.",
+      "Don't mostrar ausencia o error como cero ni colorear de rojo todo gasto.",
+      "Don't asignar un color nuevo a una categoría según su posición si su categoría es conocida.",
+      "Don't convertir los datos de ejemplo en prueba de clientes, resultados o conexiones reales."
+    ]
+  }
+}
