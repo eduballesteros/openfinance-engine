@@ -1,0 +1,43 @@
+<a class="skip-link visually-hidden" href="#contenido" (click)="skipToContent($event)">Saltar al contenido</a>
+
+<div class="shell">
+  <header class="masthead">
+    <div class="masthead-inner">
+      <a class="brand" routerLink="/">
+        <of-logo class="brand-mark" />
+        <span class="brand-name">OpenFinance</span>
+      </a>
+
+      <nav class="primary-nav" aria-label="Principal">
+        <ul role="list">
+          @for (item of navItems; track item.path) {
+            <li [class.mobile-hidden]="!item.inMobileBar">
+              <a
+                [routerLink]="item.path"
+                routerLinkActive="is-active"
+                ariaCurrentWhenActive="page"
+                [routerLinkActiveOptions]="activeOptions(item.path)"
+              >
+                <of-icon [name]="item.icon" />
+                <span class="nav-label">{{ item.label }}</span>
+                @if (item.short) {
+                  <span class="nav-short">{{ item.short }}</span>
+                }
+              </a>
+            </li>
+          }
+        </ul>
+      </nav>
+
+      @if (isSample) {
+        <p class="sample-badge">
+          <of-icon name="secure" />Datos de ejemplo<span class="visually-hidden">: las cifras son ficticias</span>
+        </p>
+      }
+    </div>
+  </header>
+
+  <main id="contenido" #main tabindex="-1">
+    <router-outlet />
+  </main>
+</div>

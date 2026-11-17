@@ -1,0 +1,8 @@
+# Generation prompt (built-in image_gen)
+
+Use case: logo-brand. Create ONE finished minimalist application icon based on the CENTRAL EMBLEM in the reference photograph, not the decorative shield or the photograph itself. Reference image role: religious emblem of the Esclavitud de la Encarnación, a sinuous letter S interlaced with a single upright nail. Preserve this specific S-and-nail construction: a smooth flowing S curve crossed at its centre by a straight vertical nail, nail head above and pointed tip below. Reinterpret it with the visual economy and rounded monoline character of the Threads by Instagram app icon, without copying Threads' actual @-like logo. Bold, confident, beautifully balanced continuous-looking rounded black stroke, clean generous negative space, optical symmetry, compact silhouette, immediately legible at 24px. Keep the S recognizable and the nail unmistakable, not an ordinary dollar sign and not a cross. Flat pure black symbol on truly transparent background. Centre the mark with 18 percent clear margin. No stone, no photograph, no shield outline, no scrollwork, no ornament, no letters beyond the emblem, no text, no gradients, no mockup, no 3D, no shadows. Square canvas, crisp vector-like edges. Single icon only.
+
+# Navy revision prompt (built-in image_gen)
+
+Edit the supplied minimalist S-and-nail emblem. Preserve its exact silhouette, spacing, flowing S shape, rounded line endings, vertical nail, triangular nail head and tapered pointed tip. Change ONLY the ink color from black to the application's solid dark navy #0B2E5F. Keep the background genuinely transparent, edges crisp, all negative space fully transparent. No other changes, no text, no photograph, no decorations, no gradients. Output a single square logo.
+
