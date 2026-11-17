@@ -1,0 +1,213 @@
+:host {
+  display: block;
+  container-type: inline-size;
+}
+
+/* ---- Banda azul marino ---- */
+.band {
+  /* Dentro de la banda, los tokens de texto se invierten para que los componentes hereden el contraste */
+  --ink: var(--navy-ink);
+  --ink-soft: var(--navy-ink);
+  --ink-faint: var(--navy-soft);
+  --rule: rgb(255 255 255 / 0.16);
+  --rule-strong: rgb(255 255 255 / 0.3);
+  --fill-strong: rgb(255 255 255 / 0.2);
+  --paper-sunk: rgb(255 255 255 / 0.12);
+  --credit: #8ee0b0;
+  --danger: #ffb4b0;
+  --danger-wash: rgb(255 255 255 / 0.1);
+  --accent: var(--navy-ink);
+  --accent-hover: var(--navy-ink);
+  --accent-wash: rgb(255 255 255 / 0.12);
+  --surface: var(--navy);
+  background: var(--navy);
+  color: var(--navy-ink);
+  padding-block-end: var(--s-8);
+}
+
+.band-inner {
+  display: grid;
+  gap: var(--s-4);
+  max-inline-size: 84rem;
+  margin-inline: auto;
+  padding: var(--s-5) var(--gutter) 0;
+}
+
+.page-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: end;
+  justify-content: space-between;
+  gap: var(--s-3);
+}
+
+h1 {
+  font-size: var(--text-2xl);
+}
+
+.date {
+  margin-block-start: 2px;
+  font-size: var(--text-sm);
+  color: var(--navy-soft);
+}
+
+.btn--on-navy {
+  background: transparent;
+  border-color: rgb(255 255 255 / 0.4);
+  color: var(--navy-ink);
+}
+
+.btn--on-navy:hover {
+  background: rgb(255 255 255 / 0.1);
+  border-color: var(--navy-ink);
+  color: var(--navy-ink);
+}
+
+.btn--on-navy:focus-visible {
+  outline-color: var(--navy-ink);
+}
+
+.spin {
+  animation: spin 900ms linear infinite;
+}
+
+@keyframes spin {
+  to {
+    rotate: 1turn;
+  }
+}
+
+.band-figures {
+  display: grid;
+  gap: var(--s-4);
+}
+
+.band-month {
+  padding-block-start: var(--s-4);
+  border-block-start: 1px solid rgb(255 255 255 / 0.16);
+}
+
+/* ---- Contenido ---- */
+.page {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--s-5);
+  max-inline-size: 84rem;
+  margin: calc(var(--s-6) * -1) auto 0;
+  padding: 0 var(--gutter) var(--s-12);
+}
+
+/* Accesos directos: iconos en círculo, como en la banca online */
+.quick ul {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  margin: 0;
+}
+
+.quick a {
+  display: flex;
+  align-items: center;
+  gap: var(--s-3);
+  min-block-size: 4rem;
+  padding: var(--s-3) var(--s-4);
+  color: var(--ink);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  line-height: 1.25;
+}
+
+.quick a:hover {
+  background: var(--fill);
+  text-decoration: none;
+}
+
+.quick li:nth-child(odd) {
+  border-inline-end: 1px solid var(--rule);
+}
+
+.quick li:nth-child(-n + 2) {
+  border-block-end: 1px solid var(--rule);
+}
+
+.notice {
+  display: flex;
+  align-items: center;
+  gap: var(--s-3);
+  padding: var(--s-3) var(--s-4);
+  border: 1px solid transparent;
+  border-radius: var(--radius-card);
+  background: var(--caution-wash);
+  color: var(--ink);
+  font-size: var(--text-sm);
+  font-weight: 500;
+}
+
+.notice of-icon {
+  color: var(--caution);
+}
+
+.notice[data-kind='danger'] {
+  background: var(--danger-wash);
+}
+
+.notice[data-kind='danger'] of-icon {
+  color: var(--danger);
+}
+
+.body,
+.side {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--s-5);
+  align-items: start;
+}
+
+.body > .card,
+.side > .card {
+  padding: var(--s-5);
+}
+
+@container (width >= 48rem) {
+  .band {
+    padding-block-end: var(--s-10);
+  }
+
+  .band-inner {
+    gap: var(--s-5);
+    padding-block-start: var(--s-8);
+  }
+
+  .band-figures {
+    gap: var(--s-6);
+  }
+
+  .band-figures {
+    grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+    align-items: end;
+  }
+
+  .band-month {
+    padding-block-start: 0;
+    padding-inline-start: var(--s-6);
+    border-block-start: 0;
+    border-inline-start: 1px solid rgb(255 255 255 / 0.16);
+  }
+
+  .quick ul {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  .quick li:nth-child(-n + 2) {
+    border-block-end: 0;
+  }
+
+  .quick li:not(:last-child) {
+    border-inline-end: 1px solid var(--rule);
+  }
+}
+
+@container (width >= 64rem) {
+  .body {
+    grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
+  }
+}

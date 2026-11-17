@@ -1,0 +1,58 @@
+<!-- Banda azul marino: la «posición global» de la banca, con el saldo y el mes -->
+<section class="band">
+  <div class="band-inner">
+    <header class="page-head">
+      <div>
+        <h1>Posición global</h1>
+        <p class="date">{{ todayLabel() }}</p>
+      </div>
+      <button type="button" class="btn btn--on-navy" (click)="refresh()" [attr.aria-disabled]="busy() ? 'true' : null">
+        <of-icon name="refresh" [class.spin]="busy()" />
+        {{ busy() ? 'Actualizando…' : 'Actualizar' }}
+      </button>
+      <p class="visually-hidden" role="status">{{ announcement() }}</p>
+    </header>
+
+    <!-- aria-busy solo durante una recarga con datos ya visibles: se atenúa, no desaparece. -->
+    <div class="band-figures">
+      <div class="band-balance" [attr.aria-busy]="refreshing(accounts())">
+        <of-balance-hero [state]="accounts()" [now]="now()" (retry)="reloadAccounts()" />
+      </div>
+      <div class="band-month" [attr.aria-busy]="refreshing(summary())">
+        <of-month-flow [state]="summary()" (retry)="reloadSummary()" />
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="page">
+  <nav class="quick card" aria-label="Accesos directos">
+    <ul role="list">
+      <li><a routerLink="/movimientos"><span class="icon-badge"><of-icon name="transactions" /></span>Movimientos</a></li>
+      <li><a routerLink="/cuentas"><span class="icon-badge"><of-icon name="link" /></span>Conectar banco</a></li>
+      <li><a routerLink="/ahorro"><span class="icon-badge"><of-icon name="savings" /></span>Objetivos de ahorro</a></li>
+      <li><a routerLink="/asistente"><span class="icon-badge"><of-icon name="assistant" /></span>Preguntar al asistente</a></li>
+    </ul>
+  </nav>
+
+  @if (attention(); as a) {
+    <p class="notice reveal" [attr.data-kind]="a.severe ? 'danger' : 'caution'">
+      <of-icon [name]="a.severe ? 'error' : 'alert'" />
+      <span>{{ a.text }}</span>
+    </p>
+  }
+
+  <div class="body">
+    <section class="card main-col" [attr.aria-busy]="refreshing(transactions())">
+      <of-recent-ledger [state]="transactions()" [today]="now()" (retry)="reloadTransactions()" />
+    </section>
+    <div class="side">
+      <section class="card" [attr.aria-busy]="refreshing(accounts())">
+        <of-accounts-section [state]="accounts()" [today]="now()" (retry)="reloadAccounts()" />
+      </section>
+      <section class="card" [attr.aria-busy]="refreshing(categories())">
+        <of-category-breakdown [state]="categories()" (retry)="reloadCategories()" />
+      </section>
+    </div>
+  </div>
+</div>

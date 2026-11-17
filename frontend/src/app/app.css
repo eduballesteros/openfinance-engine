@@ -1,0 +1,262 @@
+/*
+ * Estructura de banca online:
+ * - Escritorio (≥ 64rem): cabecera azul marino con marca, navegación horizontal y aviso de datos de ejemplo.
+ * - Móvil y tableta: cabecera marina con la marca y barra de pestañas blanca abajo (5 destinos).
+ */
+.skip-link:focus-visible {
+  position: fixed;
+  inset-block-start: var(--s-2);
+  inset-inline-start: var(--s-2);
+  z-index: 10;
+  padding: var(--s-2) var(--s-4);
+  border-radius: var(--radius-md);
+  background: var(--surface);
+  color: var(--accent);
+  font-weight: 700;
+}
+
+.shell {
+  --bar-height: 3.75rem;
+  min-block-size: 100dvh;
+}
+
+.masthead {
+  position: sticky;
+  inset-block-start: 0;
+  z-index: 4;
+  background: var(--navy);
+  color: var(--navy-ink);
+}
+
+.masthead-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--s-4);
+  max-inline-size: 84rem;
+  min-block-size: 3.5rem;
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--s-2);
+  min-block-size: 2.75rem;
+  color: var(--navy-ink);
+  font-size: var(--text-lg);
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+.brand:hover {
+  color: var(--navy-ink);
+  text-decoration: none;
+}
+
+.brand:focus-visible,
+.primary-nav a:focus-visible {
+  outline-color: var(--navy-ink);
+}
+
+.sample-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--s-1);
+  padding: 3px var(--s-3);
+  border: 1px solid rgb(255 255 255 / 0.35);
+  border-radius: var(--radius-pill);
+  color: var(--navy-ink);
+  font-size: var(--text-xs);
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.sample-badge of-icon {
+  font-size: 0.875rem;
+}
+
+main {
+  min-inline-size: 0;
+  padding-block-end: calc(var(--bar-height) + env(safe-area-inset-bottom, 0px));
+}
+
+main:focus {
+  outline: none;
+}
+
+/* ---- Barra de pestañas (móvil y tableta) ---- */
+.primary-nav {
+  position: fixed;
+  inset-inline: 0;
+  inset-block-end: 0;
+  z-index: 5;
+  padding-block-end: env(safe-area-inset-bottom, 0px);
+  background: var(--surface);
+  border-block-start: 1px solid var(--rule);
+  box-shadow: 0 -2px 10px rgb(11 46 95 / 0.06);
+}
+
+.primary-nav ul {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: 1fr;
+  margin: 0;
+}
+
+.primary-nav a {
+  display: grid;
+  justify-items: center;
+  align-content: center;
+  gap: 3px;
+  min-block-size: var(--bar-height);
+  padding-inline: var(--s-1);
+  color: var(--ink-faint);
+  font-size: 0.6875rem;
+  font-weight: 600;
+  text-align: center;
+  transition: color var(--dur-press) var(--ease-out);
+}
+
+.primary-nav a:hover {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+.primary-nav a of-icon {
+  font-size: 1.375rem;
+  transition: scale var(--dur-press) var(--ease-out);
+}
+
+.primary-nav a:active of-icon {
+  scale: 0.9;
+}
+
+.primary-nav a.is-active {
+  color: var(--accent);
+}
+
+.primary-nav a:focus-visible {
+  outline-color: var(--accent);
+}
+
+.mobile-hidden {
+  display: none;
+}
+
+/* ---- Escritorio: navegación en la cabecera ---- */
+@media (width >= 64rem) {
+  main {
+    padding-block-end: 0;
+  }
+
+  .masthead-inner {
+    min-block-size: 4rem;
+    gap: var(--s-8);
+  }
+
+  .primary-nav {
+    position: static;
+    flex: 1;
+    padding: 0;
+    background: transparent;
+    border: 0;
+    box-shadow: none;
+  }
+
+  .primary-nav ul {
+    grid-auto-flow: column;
+    grid-auto-columns: max-content;
+    gap: var(--s-1);
+  }
+
+  .primary-nav a {
+    position: relative;
+    grid-template-columns: auto auto;
+    align-items: center;
+    gap: var(--s-2);
+    min-block-size: 4rem;
+    padding-inline: var(--s-3);
+    color: var(--navy-soft);
+    font-size: var(--text-md);
+  }
+
+  .primary-nav a of-icon {
+    font-size: 1.125rem;
+  }
+
+  .primary-nav a:hover {
+    color: var(--navy-ink);
+  }
+
+  .primary-nav a:focus-visible {
+    outline-color: var(--navy-ink);
+    outline-offset: -4px;
+  }
+
+  /* Sección activa: texto blanco y línea inferior, como las pestañas de la banca online */
+  .primary-nav a.is-active {
+    color: var(--navy-ink);
+  }
+
+  .primary-nav a.is-active::after {
+    content: '';
+    position: absolute;
+    inset-inline: var(--s-3);
+    inset-block-end: 0;
+    block-size: 3px;
+    border-radius: 3px 3px 0 0;
+    background: var(--navy-ink);
+  }
+
+  .mobile-hidden {
+    display: block;
+  }
+}
+
+@media (prefers-contrast: more) {
+  .primary-nav {
+    border-block-start-color: var(--ink);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .primary-nav a:active of-icon {
+    scale: none;
+  }
+}
+
+/* En la barra de pestañas se usa la etiqueta corta; el nombre accesible sigue siendo el completo */
+.primary-nav a:has(.nav-short) .nav-label {
+  position: absolute;
+  clip-path: inset(50%);
+  inline-size: 1px;
+  block-size: 1px;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+@media (width >= 64rem) {
+  .primary-nav a:has(.nav-short) .nav-label {
+    position: static;
+    clip-path: none;
+    inline-size: auto;
+    block-size: auto;
+    overflow: visible;
+  }
+
+  .nav-short {
+    display: none;
+  }
+}
+
+/* La marca y el aviso de ejemplo caben también a 320px y con zoom. */
+@media (width < 24rem) {
+  .masthead-inner { gap: var(--s-2); }
+  .sample-badge {
+    padding-inline: var(--s-2);
+    font-size: 0.6875rem;
+  }
+  .sample-badge of-icon { display: none; }
+}
