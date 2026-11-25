@@ -1,13 +1,32 @@
-# openfinance-engine
+<p align="center">
+  <img src="frontend/public/icon-192.png" width="84" height="84" alt="Logo de OpenFinance" />
+</p>
 
-Backend en Spring Boot para conectar cuentas bancarias mediante [Enable Banking](https://enablebanking.com/) y ofrecer un chat con IA a través de [Anthropic](https://www.anthropic.com/).
+<h1 align="center">OpenFinance</h1>
 
-> **Estado:** esqueleto inicial. La aplicación arranca y se conecta a la base de datos, pero las integraciones bancaria y de IA aún no están implementadas.
+<p align="center"><strong>Tu dinero, en un solo sitio.</strong><br />Varios bancos · PSD2 solo lectura · Asistente con IA</p>
+
+![OpenFinance: tu dinero, en un solo sitio](docs/assets/cover.svg)
+
+OpenFinance reúne las cuentas de varios bancos en un mismo sitio mediante
+[Enable Banking](https://enablebanking.com/) (PSD2, solo lectura) y ayuda a entender tus finanzas
+personales: el vistazo rápido del día («¿cuánto tengo?, ¿qué ha entrado y salido?») y la revisión
+del mes («¿a dónde se va el dinero?»), con un asistente con IA de
+[Anthropic](https://www.anthropic.com/) al que preguntar en lenguaje natural. Sin publicidad y sin
+venta de datos: nunca mueve dinero.
+
+> **Estado:** en desarrollo. El backend arranca y se conecta a la base de datos, pero las
+> integraciones bancaria y de IA aún no están implementadas. El frontend ya tiene la pantalla de
+> Resumen funcionando con datos de ejemplo (ver [`frontend/README.md`](frontend/README.md)).
+
+[Puesta en marcha](#puesta-en-marcha) · [Frontend](#frontend) · [Tests](#tests) ·
+[Configuración](#configuración) · [Estructura](#estructura-del-proyecto)
 
 ## Stack
 
 | Área | Tecnología |
 | --- | --- |
+| Frontend | Angular 22 (standalone, signals), TypeScript estricto |
 | Lenguaje y framework | Java 21, Spring Boot 4.1.2 (Spring MVC) |
 | Persistencia | PostgreSQL, Spring Data JPA, Flyway |
 | Seguridad | Spring Security |
@@ -46,6 +65,19 @@ No hace falta instalar Maven: el proyecto incluye Maven Wrapper.
    ```bash
    curl http://localhost:8080/actuator/health
    ```
+
+## Frontend
+
+La interfaz web está en [`frontend/`](frontend/) (requiere Node ≥ 22.22.3 o ≥ 24.15):
+
+```bash
+cd frontend
+npm install
+npm start          # http://localhost:4200
+```
+
+De momento funciona con datos de ejemplo, marcados en pantalla. Comandos, escenarios de prueba y
+convenciones en [`frontend/README.md`](frontend/README.md); el diseño en [`DESIGN.md`](DESIGN.md).
 
 ## Tests
 
